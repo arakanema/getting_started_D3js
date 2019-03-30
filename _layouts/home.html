@@ -10,17 +10,17 @@ layout: default
   {{ content }}
 
   {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <h3 class="post-list-heading">{{ page.list_title | default: "Updates" }}</h3>
     <ul class="post-list">
       {%- for post in site.posts -%}
       <li>
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
+        <h4>
           <a class="post-link" href="{{ post.url | relative_url }}">
             {{ post.title | escape }}
           </a>
-        </h3>
+        </h4>
         {%- if site.show_excerpts -%}
           {{ post.excerpt }}
         {%- endif -%}
@@ -30,5 +30,22 @@ layout: default
 
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
   {%- endif -%}
+
+  <h2 class="post-list-heading">Table of Contents</h2>
+  {%- assign page_paths = site.pages | map: "path" -%}
+  {%- for path in page_paths -%}
+    <ul>
+    {%- assign my_page = site.pages | where: "path", path | first -%}
+    {%- if my_page.toc == true -%}
+      {% comment %}
+      tocがtrueのpageを目次に表示する
+      {% endcomment %}
+      <li class="toc_item">
+        <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+      </li>
+    {%- endif -%}
+    </ul>
+  {%- endfor -%}
+ 
 
 </div>
