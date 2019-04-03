@@ -21,15 +21,19 @@ D3は、HTML、SVG、およびCSSを使用してデータをより役立てる�
     .append('svg')
     .attr('width', 300)
     .attr('height', 300);
-
-  var circle = svg.append('circle')
+  var circle1 = svg.append('circle')
     .attr('cx', 150)
     .attr('cy', 150)
     .attr('r', 75)
     .attr('fill', 'red');
+  var circle2 = svg.append('circle')
+    .attr('cx', 180)
+    .attr('cy', 180)
+    .attr('r', 60)
+    .attr('fill', 'blue');
 </script>
 
-上の赤丸は、D3を使ってこのように描画しています。
+赤丸と青丸は、D3を使ってこのように描画しています。
 
 ```html
 <!-- 描画するDOM要素をマークアップ-->
@@ -44,15 +48,23 @@ D3は、HTML、SVG、およびCSSを使用してデータをより役立てる�
     .attr('width', 300)
     .attr('height', 300);
   // svgにcircleを追加し赤色で塗りつぶし
-  var circle = svg.append('circle')
+  var circle1 = svg.append('circle')
     .attr('cx', 150)
     .attr('cy', 150)
     .attr('r', 75)
     .attr('fill', 'red');
+  // もう一つ追加
+  var circle2 = svg.append('circle')
+    .attr('cx', 100)
+    .attr('cy', 100)
+    .attr('r', 90)
+    .attr('fill', 'blue');
 </script>
 ```
-最初の紹介ではデータを利用していませんが、D3ではこのような強力なDOM操作も提供されています。  
+
+ここではデータを利用していませんが、D3ではこのように強力なDOM操作が提供されています。  
 この機能に加え、データ操作も容易に行うことができるので様々なデータを自由にビジュアライズすることができるのです。
 
-次から少しづつD3の使い方を解説していきます。  
+次から少しづつD3の使い方を解説していきます。
+
 [D3.jsの使い方](/01_how_to_use/)
